@@ -1,11 +1,8 @@
 package com.example.api.students;
 
-import org.apache.tomcat.jni.Local;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
 
 @Entity
 @Table(name = "students", catalog = "", schema = "students_project")
@@ -37,20 +34,20 @@ public class Student {
         return name;
     }
 
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public int getAge() {
-        return Period.between(dob, LocalDate.now()).getYears();
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public LocalDate getDob() {
+        return dob;
+    }
+
     public void setDob(LocalDate dob) {
         this.dob = dob;
+    }
+
+    public int getAge() {
+        return Period.between(dob, LocalDate.now()).getYears();
     }
 
     public String getEmail() {
@@ -61,9 +58,10 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name1='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", dob=" + dob +
                 '}';
     }
+
 }

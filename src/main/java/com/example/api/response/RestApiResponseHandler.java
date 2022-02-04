@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 public class RestApiResponseHandler implements ResponseBodyAdvice<Object> {
 
     @ExceptionHandler()
-    public ResponseEntity<Object> handleException(Exception e){
+    public ResponseEntity<Object> handleException(Exception e) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
         return new ResponseEntity<>(e, status);
     }
@@ -27,7 +27,7 @@ public class RestApiResponseHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        if(body instanceof Throwable){
+        if (body instanceof Throwable) {
             return new RestApiResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ((Throwable) body).getMessage());
         }
         return new RestApiResponse(HttpStatus.OK.value(), "OK", body);
