@@ -3,8 +3,6 @@ package com.example.api.students;
 import com.example.api.response.RestApiException;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,7 +43,7 @@ public class StudentService {
             studentRepository.save(item);
         }
     }
-    public void dif() {
-        EntityManager em = Persistence.createEntityManagerFactory("hi").createEntityManager();
-    }
+//    public void dif() {
+//        EntityManager em = Persistence.createEntityManagerFactory("hi").createEntityManager();
+//    }
 }

@@ -31,7 +31,7 @@ public class StudentController {
     }
 
     @PutMapping(path = "item")
-    public void delete(@RequestBody Student student) {
+    public void update(@RequestBody Student student) {
         studentService.update(student);
     }
 }
